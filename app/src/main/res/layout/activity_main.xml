@@ -5,39 +5,70 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingHorizontal="24dp"
         tools:context=".MainActivity">
 
+        <!-- 블러 처리된 이미지 표시 -->
         <ImageView
-            android:id="@+id/ivOriginal"
+            android:layout_marginTop="20dp"
+            android:id="@+id/ivProcessed"
             android:layout_width="0dp"
             android:layout_height="300dp"
-            android:layout_margin="16dp"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- 이미지 선택 버튼 -->
         <Button
-            android:id="@+id/btnProcessImage"
+            android:id="@+id/btnSelectImage"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:text="Process Image"
+            android:text="Select Image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivOriginal" />
+            app:layout_constraintTop_toBottomOf="@id/ivProcessed" />
 
-        <ImageView
-            android:id="@+id/ivProcessed"
+        <!-- Blur Radius SeekBar -->
+        <TextView
+            android:id="@+id/tvRadiusValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Radius: 25"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnSelectImage" />
+
+        <SeekBar
+            android:id="@+id/seekBarRadius"
             android:layout_width="0dp"
-            android:layout_height="300dp"
-            android:layout_margin="16dp"
-            android:scaleType="centerCrop"
+            android:layout_height="wrap_content"
+            android:max="25"
+            android:progress="25"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnProcessImage" />
+            app:layout_constraintTop_toBottomOf="@id/tvRadiusValue" />
+
+        <!-- Bitmap Scale SeekBar -->
+        <TextView
+            android:id="@+id/tvScaleValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Scale: 0.2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/seekBarRadius" />
+
+        <SeekBar
+            android:id="@+id/seekBarScale"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:max="20"
+            android:progress="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvScaleValue" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
